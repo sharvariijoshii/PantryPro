@@ -46,6 +46,36 @@ app.post("/api/recipes", async (req, res) => {
   }
 });
 
+// Route to fetch detailed recipe by id
+app.get("/api/recipes/:id", async (req, res) => {
+  const recipeId = req.params.id;
+
+  if (!recipeId) {
+    return res.status(400).json({ error: "Recipe ID is required." });
+  }
+
+  try {
+    const response = await axios.get(`${SPOONACULAR_BASE_URL}/recipes/${recipeId}/information`, {
+      params: {
+        apiKey: SPOONACULAR_API_KEY,
+      },
+    });
+
+    const detailedRecipe = {
+      id: response.data.id,
+      title: response.data.title,
+      image: response.data.image,
+      ingredients: response.data.extendedIngredients.map((ing) => ing.name),
+      instructions: response.data.instructions,
+    };
+
+    res.json(detailedRecipe);
+  } catch (error) {
+    console.error("Error fetching recipe details:", error);
+    res.status(500).json({ error: "Failed to fetch recipe details. Please try again later." });
+  }
+});
+
 // Route to fetch ingredient pricing
 app.post("/api/ingredient-prices", async (req, res) => {
   const { ingredients } = req.body;
