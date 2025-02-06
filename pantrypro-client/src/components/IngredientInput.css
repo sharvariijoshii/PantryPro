@@ -1,0 +1,215 @@
+/* Global Color Variables */
+:root {
+    --primary-color: #1e3a8a; /* Dark Blue */
+    --secondary-color: #3b82f6; /* Bright Blue */
+    --accent-color: #60a5fa; /* Light Blue */
+    --background-color: #f0f4f8; /* Light Background */
+    --hover-color: #2563eb; /* Hover Color */
+    --card-bg-color: #ffffff; /* Card Background */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    --font-family: 'Arial', sans-serif; /* Font for text */
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Section */
+.container {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.main-heading {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    line-height: 1.4;
+    font-style: italic; /* Added italic style for emphasis */
+}
+
+/* Ingredient Input */
+.ingredient-input {
+    padding: 12px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    background-color: #fff;
+    transition: border 0.3s;
+}
+
+.ingredient-input:focus {
+    border: 1px solid var(--secondary-color);
+    outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    padding: 12px 24px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: var(--hover-color);
+}
+
+/* Recipe Cards */
+.recipe-list {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 10px; /* Add some padding to avoid cards touching edges */
+}
+
+.recipe-item {
+    background-color: var(--card-bg-color);
+    width: 300px;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px var(--shadow-color);
+}
+
+.recipe-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.recipe-name {
+    font-size: 18px;
+    font-weight: bold; /* Make the recipe names bold */
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.recipe-details {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+/* Recipe Detail Page Enhancement */
+.recipe-detail {
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.recipe-title {
+    font-size: 32px;
+    font-weight: bold; /* Bold title */
+    color: var(--primary-color);
+    margin-bottom: 15px; /* Adjusted spacing */
+    text-transform: capitalize;
+}
+
+.recipe-img {
+    width: 100%;
+    max-width: 500px; /* Reduced width */
+    height: auto; /* Adjusted height to maintain aspect ratio */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+.ingredients-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.ingredients-list li {
+    font-size: 16px;
+    padding: 6px 0; /* Reduced spacing between ingredients */
+    color: #555;
+}
+
+.back-btn {
+    padding: 10px 20px;
+    font-size: 14px; /* Slightly smaller font size */
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    background-color: var(--primary-color);
+    color: white;
+    width: 200px; /* Ensure it doesn't look too large */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.back-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+}
+
+.submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+}
+
+/* Adjust Recipe List and Centering */
+.recipe-list h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Centering the header */
+    margin-bottom: 20px;
+    width: 100%; /* Ensure the header spans full width */
+}

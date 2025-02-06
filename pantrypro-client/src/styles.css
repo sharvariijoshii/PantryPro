@@ -1,0 +1,35 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #f0f4f8; /* Light blue background */
+    color: #1e3a8a; /* Dark blue text */
+  }
+  
+  h1, h2, h3, p {
+    font-family: 'Roboto', sans-serif;
+    color: #1e3a8a; /* Dark blue text */
+  }
+  
+  button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Centering container */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
