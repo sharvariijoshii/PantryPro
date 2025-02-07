@@ -97,7 +97,7 @@ body {
 }
 
 .recipe-item:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
     box-shadow: 0px 8px 20px var(--shadow-color);
 }
 
@@ -119,9 +119,24 @@ body {
 
 .recipe-details {
     font-size: 14px;
-    color: #666;
     text-align: center;
+    color: #666; /* Default text color */
 }
+
+/* Used Ingredients */
+.used-ingredients {
+    color: green;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Missed Ingredients */
+.missed-ingredients {
+    color: red;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
 
 /* Recipe Detail Page Enhancement */
 .recipe-detail {

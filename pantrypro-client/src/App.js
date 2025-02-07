@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import IngredientInput from "./components/IngredientInput";
 import Navbar from "./components/Navbar";
+import FavoriteRecipes from "./components/FavoriteRecipes";
 import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/favorites" element={<ProtectedRoute><FavoriteRecipes /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to={user ? "/recipes" : "/login"} />} />
       </Routes>
     </>

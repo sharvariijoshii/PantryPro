@@ -12,16 +12,15 @@ const Navbar = () => {
     navigate("/login"); // Redirect to login after logout
   };
 
-  console.log("Navbar User:", user); // Debugging log
-
   return (
     <nav style={styles.navbar}>
-      <h2>PantryPro</h2>
+      <h2 onClick={() => navigate("/recipes")} style={{ cursor: "pointer" }}>PantryPro</h2>
       <div style={styles.userSection}>
+        <button onClick={() => navigate("/favorites")} style={styles.favButton}>❤️ Favorites</button>
         {user ? (
           <div style={styles.dropdownContainer}>
             <button onClick={() => setDropdownOpen(!dropdownOpen)} style={styles.userButton}>
-              {user.username} ▼ {/* Displaying username */}
+              {user.username} ▼
             </button>
             {dropdownOpen && (
               <div style={styles.dropdownMenu}>
@@ -37,11 +36,10 @@ const Navbar = () => {
   );
 };
 
-
-// Simple inline styles for minimal styling
 const styles = {
   navbar: { display: "flex", justifyContent: "space-between", padding: "10px", background: "#333", color: "white" },
-  userSection: { position: "relative" },
+  userSection: { position: "relative", display: "flex", alignItems: "center" },
+  favButton: { background: "none", color: "white", border: "none", cursor: "pointer", fontSize: "16px", marginRight: "10px" },
   userButton: { background: "none", color: "white", border: "none", cursor: "pointer", fontSize: "16px" },
   dropdownContainer: { position: "relative" },
   dropdownMenu: { position: "absolute", top: "100%", right: 0, background: "white", color: "black", padding: "5px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", borderRadius: "5px" },
