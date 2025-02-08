@@ -13,38 +13,57 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={styles.navbar}>
-      <h2 onClick={() => navigate("/recipes")} style={{ cursor: "pointer" }}>PantryPro</h2>
-      <div style={styles.userSection}>
-        <button onClick={() => navigate("/favorites")} style={styles.favButton}>❤️ Favorites</button>
+    <nav className="bg-white text-indigo-700 py-4 shadow-md flex justify-between items-center px-6">
+      {/* "Recipes" moved to the extreme left */}
+      <h2
+        className="text-2xl font-bold cursor-pointer"
+        onClick={() => navigate("/recipes")}
+      >
+        Recipes
+      </h2>
+
+      {/* Right Section: Favorites & User Dropdown */}
+      <div className="flex items-center space-x-4 relative">
+        {/* Favorite Button with Red Heart */}
+        <button
+          onClick={() => navigate("/favorites")}
+          className="text-indigo-700 text-lg font-bold cursor-pointer flex items-center space-x-2 hover:text-red-400 transition"
+        >
+          <span>♥️ Favorites</span>
+        </button>
+
+        {/* User Dropdown */}
         {user ? (
-          <div style={styles.dropdownContainer}>
-            <button onClick={() => setDropdownOpen(!dropdownOpen)} style={styles.userButton}>
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="text-indigo-700 text-lg font-semibold hover:underline"
+            >
               {user.username} ▼
             </button>
+
             {dropdownOpen && (
-              <div style={styles.dropdownMenu}>
-                <button onClick={handleLogout} style={styles.logoutButton}>Logout</button>
+              <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-lg py-2 w-32">
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-200"
+                >
+                  Logout
+                </button>
               </div>
             )}
           </div>
         ) : (
-          <button onClick={() => navigate("/login")} style={styles.loginButton}>Login</button>
+          <button
+            onClick={() => navigate("/login")}
+            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
+          >
+            Login
+          </button>
         )}
       </div>
     </nav>
   );
-};
-
-const styles = {
-  navbar: { display: "flex", justifyContent: "space-between", padding: "10px", background: "#333", color: "white" },
-  userSection: { position: "relative", display: "flex", alignItems: "center" },
-  favButton: { background: "none", color: "white", border: "none", cursor: "pointer", fontSize: "16px", marginRight: "10px" },
-  userButton: { background: "none", color: "white", border: "none", cursor: "pointer", fontSize: "16px" },
-  dropdownContainer: { position: "relative" },
-  dropdownMenu: { position: "absolute", top: "100%", right: 0, background: "white", color: "black", padding: "5px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", borderRadius: "5px" },
-  logoutButton: { background: "red", color: "white", border: "none", padding: "5px", cursor: "pointer" },
-  loginButton: { background: "green", color: "white", padding: "5px 10px", border: "none", cursor: "pointer" },
 };
 
 export default Navbar;
