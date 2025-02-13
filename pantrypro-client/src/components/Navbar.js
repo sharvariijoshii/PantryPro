@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleLogout = () => {
@@ -12,27 +13,31 @@ const Navbar = () => {
     navigate("/login"); // Redirect to login after logout
   };
 
+  // Hide the Favorites button on the login and register pages.
+  // (Assuming your register page is at "/" or "/register" as needed.)
+  const hideFavorites = location.pathname === "/login" || location.pathname === "/" || location.pathname === "/register";
+
   return (
     <nav className="bg-white text-indigo-700 py-4 shadow-md flex justify-between items-center px-6">
-      {/* "Recipes" moved to the extreme left */}
+      {/* Pantrypro logo always visible */}
       <h2
         className="text-2xl font-bold cursor-pointer"
         onClick={() => navigate("/recipes")}
       >
-        Recipes
+        Pantrypro
       </h2>
 
-      {/* Right Section: Favorites & User Dropdown */}
+      {/* Right Section: Favorites (conditionally rendered) & User Dropdown */}
       <div className="flex items-center space-x-4 relative">
-        {/* Favorite Button with Red Heart */}
-        <button
-          onClick={() => navigate("/favorites")}
-          className="text-indigo-700 text-lg font-bold cursor-pointer flex items-center space-x-2 hover:text-red-400 transition"
-        >
-          <span>♥️ Favorites</span>
-        </button>
+        {!hideFavorites && (
+          <button
+            onClick={() => navigate("/favorites")}
+            className="text-indigo-700 text-lg font-bold cursor-pointer flex items-center space-x-2 hover:text-red-400 transition"
+          >
+            <span>♥️ Favorites</span>
+          </button>
+        )}
 
-        {/* User Dropdown */}
         {user ? (
           <div className="relative">
             <button
@@ -41,7 +46,6 @@ const Navbar = () => {
             >
               {user.username} ▼
             </button>
-
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-lg py-2 w-32">
                 <button
