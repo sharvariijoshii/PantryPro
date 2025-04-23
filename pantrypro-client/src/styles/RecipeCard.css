@@ -1,0 +1,147 @@
+.recipe-card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-image-container {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.recipe-card-content {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.recipe-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.25rem;
+}
+
+.used-ingredients, .missed-ingredients {
+  font-size: 0.8rem;
+  margin: 0.25rem 0;
+}
+
+.used-ingredients {
+  color: var(--accent-color);
+}
+
+.missed-ingredients {
+  color: #e53e3e;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.favorite-button, .remove-button, .view-button {
+  padding: 0.4rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  width: calc(50% - 0.25rem);
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.favorite-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.favorite-button:hover {
+  background-color: #388E3C;
+}
+
+.remove-button {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #c53030;
+}
+
+.view-button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.view-button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Dark mode adjustments */
+.dark-mode .recipe-card {
+  background-color: var(--card-bg);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .recipe-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .recipe-title {
+  color: var(--accent-color);
+}
+
+.dark-mode .match-text {
+  color: var(--text-secondary);
+}
+
+.dark-mode .recipe-match-bar {
+  background-color: #444;
+}
+
+.dark-mode .view-recipe-btn {
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.1);
+}
+
+.dark-mode .view-recipe-btn:hover {
+  box-shadow: 0 3px 6px rgba(76, 175, 80, 0.2);
+}
+
+@media (max-width: 768px) {
+  .recipe-card {
+    max-width: 100%;
+  }
+}

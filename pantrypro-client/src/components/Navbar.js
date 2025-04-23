@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthContext";
+import { ThemeContext } from "../context/ThemeContext";
 import { useNavigate, useLocation } from "react-router-dom";
+import ThemeToggle from './ThemeToggle';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,39 +22,58 @@ const Navbar = () => {
   const hideFavorites = location.pathname === "/login" || location.pathname === "/" || location.pathname === "/register";
 
   return (
-    <nav className="bg-white text-indigo-700 py-4 shadow-md flex justify-between items-center px-6">
+    <nav className={`navbar ${darkMode ? 'dark-mode' : ''}`}>
       {/* Pantrypro logo always visible */}
       <h2
-        className="text-2xl font-bold cursor-pointer"
+        className="navbar-logo"
         onClick={() => navigate("/recipes")}
       >
         Pantrypro
       </h2>
 
       {/* Right Section: Favorites (conditionally rendered) & User Dropdown */}
-      <div className="flex items-center space-x-4 relative">
+      <div className="navbar-items">
+        <ThemeToggle />
         {!hideFavorites && (
           <button
             onClick={() => navigate("/favorites")}
-            className="text-indigo-700 text-lg font-bold cursor-pointer flex items-center space-x-2 hover:text-red-400 transition"
+            className="navbar-link"
           >
-            <span>♥️ Favorites</span>
+            <span>❤️ Favorites</span>
+          </button>
+        )}
+
+        {!hideFavorites && (
+          <button
+            onClick={() => navigate("/meal-planner")}
+            className="navbar-link"
+          >
+            <span>📅 Meal Planner</span>
+          </button>
+        )}
+        
+        {!hideFavorites && (
+          <button
+            onClick={() => navigate("/nutrition")}
+            className="navbar-link"
+          >
+            <span>📊 Nutrition</span>
           </button>
         )}
 
         {user ? (
-          <div className="relative">
+          <div className="user-dropdown">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="text-indigo-700 text-lg font-semibold hover:underline"
+              className="navbar-user"
             >
               {user.username} ▼
             </button>
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-lg py-2 w-32">
+              <div className={`dropdown-menu ${darkMode ? 'dark-mode' : ''}`}>
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-200"
+                  className="logout-button"
                 >
                   Logout
                 </button>
@@ -60,7 +83,7 @@ const Navbar = () => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
+            className="login-button"
           >
             Login
           </button>

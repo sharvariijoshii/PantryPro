@@ -1,0 +1,178 @@
+.nutrition-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--text-primary);
+}
+
+.nutrition-dashboard h2 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.dashboard-description {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.time-frame-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.time-frame-selector button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-frame-selector button.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.dashboard-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-tabs button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: bold;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.dashboard-tabs button:hover {
+  color: var(--accent-color);
+}
+
+.dashboard-tabs button.active {
+  color: var(--accent-color);
+}
+
+.dashboard-tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.dashboard-content {
+  min-height: 400px;
+}
+
+.chart-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.chart-container h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+.nutrition-summary {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+}
+
+.nutrition-summary p {
+  margin: 0.5rem 0;
+}
+
+.loading, .no-data, .error {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.error {
+  color: #e53e3e;
+  background-color: rgba(229, 62, 62, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 80%;
+}
+
+.dashboard-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Dark mode adjustments */
+.dark-mode .chart-container {
+  background-color: var(--card-bg);
+}
+
+.dark-mode .nutrition-summary {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .time-frame-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .time-frame-selector button {
+    margin: 0.25rem 0;
+    width: 200px;
+  }
+  
+  .dashboard-tabs {
+    flex-direction: column;
+    align-items: center;
+    border-bottom: none;
+  }
+  
+  .dashboard-tabs button {
+    margin: 0.25rem 0;
+    width: 200px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .dashboard-tabs button.active::after {
+    display: none;
+  }
+  
+  .dashboard-tabs button.active {
+    background-color: var(--accent-color);
+    color: white;
+  }
+}

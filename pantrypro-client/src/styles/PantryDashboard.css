@@ -1,0 +1,301 @@
+.pantry-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.pantry-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.pantry-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.add-item-form-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.add-item-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-input, .form-select {
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.quantity-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-input.quantity {
+  width: 80px;
+}
+
+.form-select.unit {
+  flex: 1;
+}
+
+.expiry-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.expiry-input label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.add-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.pantry-items-container {
+  margin-bottom: 2rem;
+}
+
+.empty-pantry {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 2px dashed var(--border-color);
+}
+
+.pantry-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.pantry-item {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.pantry-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pantry-item.expired {
+  border-left-color: #e53e3e;
+}
+
+.pantry-item.expiring-soon {
+  border-left-color: #ed8936;
+}
+
+.pantry-item.fresh {
+  border-left-color: #38a169;
+}
+
+.pantry-item.no-expiry {
+  border-left-color: #718096;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.item-category {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.item-name {
+  font-weight: bold;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.remove-btn:hover {
+  color: #e53e3e;
+}
+
+.item-details {
+  padding: 1rem;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quantity-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.item-expiry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.expiry-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.expiry-indicator.expired {
+  background-color: #e53e3e;
+}
+
+.expiry-indicator.expiring-soon {
+  background-color: #ed8936;
+}
+
+.expiry-indicator.fresh {
+  background-color: #38a169;
+}
+
+.expiry-indicator.no-expiry {
+  background-color: #718096;
+}
+
+.pantry-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.use-in-recipe-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  font-size: 1.1rem;
+}
+
+.use-in-recipe-btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.use-in-recipe-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .pantry-dashboard {
+    padding: 1rem;
+  }
+  
+  .add-item-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .pantry-items-grid {
+    grid-template-columns: 1fr;
+  }
+}
